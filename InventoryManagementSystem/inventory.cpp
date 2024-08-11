@@ -2,7 +2,6 @@
 #include <fstream>
 #include <iostream>
 #include <algorithm>
-
 using namespace std;
 
 Inventory::Inventory() {
@@ -111,7 +110,6 @@ void Inventory::view_all_p() const {
 void Inventory::report() const {
     cout << "Inventory Report\n";
     for (const auto& product : products) {
-        cout << "Report:\n";
         product.display_all();
         cout << endl;
     }

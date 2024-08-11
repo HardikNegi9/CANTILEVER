@@ -3,7 +3,6 @@
 #define PRODUCT_H
 using namespace std;
 
-// 
 class Product {
 private:
     string id;

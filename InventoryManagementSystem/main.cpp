@@ -22,7 +22,6 @@ int main() {
     do {
         menu();
         cin >> choice;
-        cout << endl;
         string id, name;
         int quantity;
         double price;
