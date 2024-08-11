@@ -1,8 +1,9 @@
 #include<iostream>
-#include "inventory.h"
 using namespace std;
+#include "inventory.h"
 
     void menu() {
+        cout << endl;
         cout << "1. Add New Product\n";
         cout << "2. Update Product Details\n";
         cout << "3. Delete Product\n";
@@ -16,50 +17,51 @@ using namespace std;
 
 
 int main() {
-    Inventory inventory;
     int choice;
-
+    Inventory inventory;
     do {
         menu();
         cin >> choice;
-
-        if (choice == 1) {
-            string id, name;
-            int quantity;
-            double price;
-            cout << "Enter Product ID: ";
-            cin >> id;
-            cout << "Enter Product Name: ";
-            cin >> name;
-            cout << "Enter Quantity: ";
-            cin >> quantity;
-            cout << "Enter Price: ";
-            cin >> price;
-            inventory.add_p(Product(id, name, quantity, price));
-        } else if (choice == 2) {
-            string id, name;
-            int quantity;
-            double price;
-            cout << "Enter Product ID to Update: ";
-            cin >> id;
-            cout << "Enter New Product Name: ";
-            cin >> name;
-            cout << "Enter New Quantity: ";
-            cin >> quantity;
-            cout << "Enter New Price: ";
-            cin >> price;
-            inventory.update_p(id, Product(id, name, quantity, price));
-        } else if (choice == 3) {
-            string id;
-            cout << "Enter Product ID to Delete: ";
-            cin >> id;
-            inventory.del_product(id);
-        } else if (choice == 4) {
-            inventory.view_all_p();
-        } else if (choice == 5) {
-            inventory.report();
+        cout << endl;
+        string id, name;
+        int quantity;
+        double price;
+        switch (choice){
+            case 1:
+                cout << "Enter Product ID: ";
+                cin >> id;
+                cout << "Enter Product Name: ";
+                cin >> name;
+                cout << "Enter Quantity: ";
+                cin >> quantity;
+                cout << "Enter Price: ";
+                cin >> price;
+                inventory.add_p(Product(id, name, quantity, price));
+                break;
+            case 2:
+                cout << "Enter Product ID to Update: ";
+                cin >> id;
+                inventory.update_p(id);
+                break;
+            case 3:
+                cout << "Enter Product ID to Delete: ";
+                cin >> id;
+                inventory.del_p(id);
+                break;
+            case 4:
+                inventory.view_all_p();
+                break;
+            case 5:
+                inventory.report();
+                break;
+            case 6:
+                cout << "Exited Succesfully\n";
+                break;
+            default:
+                cout << "Invalid Input!, Enter again: ";
+                break;
         }
-    } while (choice != 6);
+    }while(choice != 6);
 
     return 0;
 }
